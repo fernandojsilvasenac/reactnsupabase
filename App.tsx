@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { View, TextInput, Button, FlatList, Text, StyleSheet, Alert } from 'react-native';
-// import { StatusBar } from 'expo-status-bar';
 import { services } from "@/services";
 import  { supabase } from "@/services/supabase";
 
@@ -80,10 +79,10 @@ export default function App() {
       <FlatList
         data={data}
         keyExtractor={user => user.id}
-        renderItem={({ user }) => (
+        renderItem={({ item }) => (
           <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: 10 }}>
-            {/* <Text>{user.name}</Text> */}
-            <Button onPress={() => handleDelete(user.id)} title="Deletar" />
+            <Text>{item.name}</Text>
+            <Button onPress={() => handleDelete(item.id)} title="Deletar" />
           </View>
         )}
       />
